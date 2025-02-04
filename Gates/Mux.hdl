@@ -1,0 +1,16 @@
+
+CHIP Mux {
+    IN a, b, sel;
+    OUT out;
+
+    PARTS:
+   /* And(a=b , b=sel , out=ifb );
+    Not(in=sel , out=nsel );
+    And(a=a , b=nsel , out=ifa );
+    Or(a=ifb , b=ifa , out=out );*/
+    Nand(a=sel , b=b , out=selb );
+    Not(in=sel , out=nsel );
+    Nand(a=nsel , b=a , out=sela );
+    Nand(a=selb , b=sela , out=out );
+    //// Replace this comment with your code.
+}
